@@ -1,0 +1,11 @@
+
+{
+	"name": "PHP",
+	"dockerFile": "Dockerfile",
+	"extensions": [
+        "felixfbecker.php-debug",
+		"felixfbecker.php-intellisense"
+	],
+	"appPort": ["8888:80"],
+	"postCreateCommand": "apachectl start"
+}
