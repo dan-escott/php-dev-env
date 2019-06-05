@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/vscode-remote-try-php
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
+    links:
+      - db
+    ports:
+      - "8888:80"
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: database
+    volumes:
+      - ./database/data.sql:/docker-entrypoint-initdb.d/data.sql
+
+volumes:
+  remote-workspace:

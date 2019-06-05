@@ -1,11 +1,12 @@
 
 {
-	"name": "PHP",
-	"dockerFile": "Dockerfile",
+	"name": "PHP and MariaDb",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "web",
+	"workspaceFolder": "/workspaces",
 	"extensions": [
         "felixfbecker.php-debug",
 		"felixfbecker.php-intellisense"
 	],
-	"appPort": ["8888:80"],
 	"postCreateCommand": "apachectl start"
 }
